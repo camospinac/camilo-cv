@@ -1,15 +1,18 @@
 import type { Command } from '../types';
-import { cv } from '../../data/cv';
+import { getCv } from '../../data/cv';
 
 export const projects: Command = {
   name: 'projects',
-  description: 'Muestra el portafolio de proyectos destacados.',
+  description: 'My portfolio / Mi portafolio',
   execute: () => {
-    const { projects } = cv;
+    const cv = getCv();
+    const { projects, ui } = cv;
+    
     if (!projects || projects.length === 0) {
-      return `<div class="text-gray-400">No hay proyectos para mostrar en este momento.</div>`;
+      return `<div class="text-gray-400">No data available.</div>`;
     }
-    const projectsHtml = projects.map(proj => {
+    
+    const projectsHtml = projects.map((proj: any) => {
       const hasLinks = !!(proj.github || proj.deploy);
       const techString = proj.tech.join(' <span class="text-gray-500">·</span> ');
       const linksArr = [];
@@ -22,7 +25,6 @@ export const projects: Command = {
 
       return `
       <div class="mb-6 text-sm sm:text-base">
-        <!-- Header -->
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">┌─</div>
           <div class="font-bold text-[#27c93f]">${proj.name}</div>
@@ -30,7 +32,7 @@ export const projects: Command = {
         <div class="text-gray-500">│</div>
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">├─</div>
-          <div class="text-blue-400 font-bold">Description</div>
+          <div class="text-blue-400 font-bold">${ui.descLabel}</div>
         </div>
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">│</div>
@@ -39,7 +41,7 @@ export const projects: Command = {
         <div class="text-gray-500">│</div>
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">${hasLinks ? '├─' : '└─'}</div>
-          <div class="text-blue-400 font-bold">Stack</div>
+          <div class="text-blue-400 font-bold">${ui.stackLabel}</div>
         </div>
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">${hasLinks ? '│' : ''}</div>
@@ -49,7 +51,7 @@ export const projects: Command = {
         <div class="text-gray-500">│</div>
         <div class="flex">
           <div class="text-gray-500 w-6 shrink-0">└─</div>
-          <div class="text-blue-400 font-bold">Links</div>
+          <div class="text-blue-400 font-bold">${ui.linksLabel}</div>
         </div>
         <div class="flex">
           <div class="w-6 shrink-0"></div>
@@ -58,6 +60,7 @@ export const projects: Command = {
         ` : ''}
       </div>`;
     }).join('');
+    
     return `<div class="animate-fadeIn mt-2">${projectsHtml}</div>`;
   }
 };

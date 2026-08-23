@@ -1,14 +1,16 @@
 import type { Command } from '../types';
-import { cv } from '../../data/cv';
+import { getCv } from '../../data/cv';
 
 export const experience: Command = {
   name: 'experience',
   description: 'Muestra mi trayectoria profesional y experiencia laboral.',
   execute: () => {
+    const cv = getCv();
     const { experience } = cv;
     if (!experience || experience.length === 0) {
-      return `<div class="text-gray-400">No hay experiencia para mostrar en este momento.</div>`;
+      return `<div class="text-gray-400">No data available.</div>`;
     }
+    
     const expHtml = experience.map(exp => {
       const descHtml = exp.description.map(item => `
         <div class="flex mt-1">
@@ -33,13 +35,13 @@ export const experience: Command = {
         <div class="text-gray-600 mb-2 select-none tracking-widest hidden sm:block">
           --------------------------------------------------
         </div>
-        <!-- Separador para móviles -->
         <div class="border-b border-gray-600 border-dashed mb-2 block sm:hidden"></div>
         <div class="text-sm sm:text-base">
           ${descHtml}
         </div>
       </div>`;
     }).join('');
+    
     return `<div class="mt-2">${expHtml}</div>`;
   }
 };

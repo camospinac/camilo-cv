@@ -1,0 +1,47 @@
+---
+---
+<div class="flex justify-end max-w-3xl mx-auto mb-2 px-2">
+  <div class="flex items-center gap-2 text-xs font-mono select-none">
+    <span id="label-es" class="transition-colors duration-200">ES</span>
+    
+    <label class="relative inline-flex items-center cursor-pointer">
+      <input type="checkbox" id="lang-toggle" class="sr-only peer">
+      <!-- El fondo del switch -->
+      <div class="w-9 h-5 bg-black/40 border border-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-gray-300 after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-[#27c93f]/20 peer-checked:after:bg-[#27c93f] peer-checked:border-[#27c93f]/50"></div>
+    </label>
+    
+    <span id="label-en" class="text-gray-500 transition-colors duration-200">EN</span>
+  </div>
+</div>
+
+<script>
+  import { getLang, setLang } from '../../data/cv';
+
+  const toggle = document.getElementById('lang-toggle') as HTMLInputElement;
+  const labelEs = document.getElementById('label-es');
+  const labelEn = document.getElementById('label-en');
+
+  // Inicializar vista
+  const updateUI = (lang: string) => {
+    if (lang === 'en') {
+      toggle.checked = true;
+      labelEn?.classList.replace('text-gray-500', 'text-[#27c93f]');
+      labelEs?.classList.replace('text-[#27c93f]', 'text-gray-500');
+    } else {
+      toggle.checked = false;
+      labelEs?.classList.replace('text-gray-500', 'text-[#27c93f]');
+      labelEn?.classList.replace('text-[#27c93f]', 'text-gray-500');
+    }
+  };
+
+  updateUI(getLang());
+
+  toggle.addEventListener('change', (e) => {
+    const newLang = (e.target as HTMLInputElement).checked ? 'en' : 'es';
+    setLang(newLang);
+    updateUI(newLang);
+    
+    // Disparamos el evento para que el Engine limpie y actualice la terminal
+    window.dispatchEvent(new CustomEvent('langChange'));
+  });
+</script>

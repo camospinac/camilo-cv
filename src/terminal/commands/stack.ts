@@ -1,18 +1,20 @@
 import type { Command } from '../types';
-import { cv } from '../../data/cv';
+import { getCv } from '../../data/cv';
 
 export const stack: Command = {
   name: 'stack',
-  description: 'Muestra mis habilidades técnicas y herramientas.',
+  description: 'Tech stack / Herramientas y tecnologías',
   execute: () => {
-    const { stack } = cv;
+    const cv = getCv();
+    const stack: any = cv.stack; 
     const renderBlock = (title: string, items: string[]) => {
       if (!items || items.length === 0) return '';
-      const itemsList = items.map(item => `
+      const itemsList = items.map((item: string) => `
         <div class="text-gray-300 ml-1">
           <span class="text-gray-600 mr-2">·</span>${item}
         </div>
       `).join('');
+      
       return `
         <div class="mb-4 break-inside-avoid">
           <div class="text-blue-400 font-bold tracking-widest uppercase text-sm">${title}</div>

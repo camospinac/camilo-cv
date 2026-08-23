@@ -1,15 +1,15 @@
 import type { Command } from '../types';
-import { cv } from '../../data/cv';
+import { getCv } from '../../data/cv';
 
 export const about: Command = {
   name: 'about',
-  description: 'Muestra información general sobre mi perfil (estilo neofetch).',
+  description: 'Who am I? / ¿Quién soy?',
   execute: () => {
+    const cv = getCv();
     const { profile, experience } = cv;
     const expYears = experience.length > 0 ? experience[0].duration : "Experiencia profesional";
     return `
       <div class="animate-fadeIn my-4 flex justify-center">
-        <!-- Contenedor principal estilo ventana (Border) -->
         <div class="w-full max-w-3xl border border-white/20 rounded-md p-4 sm:p-6 bg-black/20">
           <div class="grid grid-cols-1 md:grid-cols-[auto_1fr] gap-6 md:gap-10 items-center">
             <div class="hidden sm:flex justify-center text-[#27c93f]">
