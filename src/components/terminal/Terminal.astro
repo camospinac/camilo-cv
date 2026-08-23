@@ -1,0 +1,17 @@
+---
+import TerminalHeader from './TerminalHeader.astro';
+import TerminalOutput from './TerminalOutput.astro';
+import TerminalPrompt from './TerminalPrompt.astro';
+import QuickActions from './QuickActions.astro';
+---
+
+<div class="w-full flex flex-col gap-5 items-center">
+  <div class="w-full h-[75vh] min-h-[500px] max-h-[850px] bg-[#1c1c1e]/85 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl flex flex-col overflow-hidden ring-1 ring-black/50">
+    <TerminalHeader />
+    <div class="flex-1 flex flex-col overflow-y-auto px-4 py-3 md:px-6 md:py-4">
+      <TerminalOutput />
+      <TerminalPrompt />
+    </div>
+  </div>
+  <QuickActions />
+</div>

@@ -1,23 +1,54 @@
+---
+interface Props { title?: string; }
+const { title = "Camilo Antonio Ospina Cruz | Software Developer" } = Astro.props;
+const description = "Portafolio interactivo de Camilo Antonio Ospina Cruz, Software Developer con 4 años de experiencia en backend, frontend y automatización.";
+const siteUrl = "https://tudominio.com"; // <-- TODO: Cambiar por URL final
+const ogImage = `${siteUrl}/og-image.jpg`; // <-- TODO: Añadir una imagen a public/og-image.jpg
+const jsonLd = {
+  "@context": "https://schema.org/",
+  "@type": "Person",
+  "name": "Camilo Antonio Ospina Cruz",
+  "jobTitle": "Software Developer",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bogotá",
+    "addressRegion": "Bogotá D.C.",
+    "addressCountry": "Colombia"
+  },
+  "url": siteUrl,
+  "sameAs": [
+    "https://github.com/camospinac",
+    "https://www.linkedin.com/in/camospinac/"
+  ]
+};
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="es" class="bg-[#121212] text-gray-200">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#121212" />
+		<meta name="robots" content="index, follow" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<link rel="canonical" href={siteUrl} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={siteUrl} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={siteUrl} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImage} />
+		<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
 	</head>
-	<body>
+	<body class="min-h-screen font-sans m-0 p-0 antialiased selection:bg-[#27c93f] selection:text-black">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

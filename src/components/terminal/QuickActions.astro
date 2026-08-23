@@ -1,0 +1,61 @@
+---
+---
+
+<div class="flex flex-wrap justify-center gap-3 sm:gap-5 text-xs sm:text-sm font-medium text-gray-500">
+  <button data-command="about" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ about ]
+  </button>
+  <button data-command="experience" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ experience ]
+  </button>
+  <button data-command="education" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ education ]
+  </button>
+  <button data-command="projects" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ projects ]
+  </button>
+  <button data-command="stack" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ stack ]
+  </button>
+  <button data-command="contact" class="quick-action-btn hover:text-gray-300 hover:bg-white/5 px-2 py-1 rounded transition-all duration-200 cursor-pointer">
+    [ contact ]
+  </button>
+</div>
+
+<script>
+  const buttons = document.querySelectorAll('.quick-action-btn');
+  const form = document.getElementById('terminal-form') as HTMLFormElement | null;
+  const input = document.getElementById('terminal-input') as HTMLInputElement | null;
+  let isExecuting = false;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const typeCommand = async (command: string) => {
+    if (!input) return;
+    input.value = '';
+    input.readOnly = true;
+
+    for (let i = 0; i < command.length; i++) {
+      input.value += command[i];
+      const delay = Math.floor(Math.random() * (50 - 30 + 1)) + 30;
+      await new Promise(resolve => setTimeout(resolve, delay));
+    }
+    await new Promise(resolve => setTimeout(resolve, 150));
+    input.readOnly = false;
+    input.focus();
+  };
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', async () => {
+      if (isExecuting) return;
+      const command = btn.getAttribute('data-command');
+      if (!command || !input || !form) return;
+      isExecuting = true;
+      if (prefersReducedMotion) {
+        input.value = command;
+      } else {
+        await typeCommand(command);
+      }
+      form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+      isExecuting = false;
+    });
+  });
+</script>
