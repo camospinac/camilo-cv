@@ -35,7 +35,33 @@ const cvData = {
         tech: ["JavaScript", "GSAP", "CSS3", "HTML5", "Supabase"],
         github: "https://github.com/camospinac/robertlauraboda",
         deploy: "https://robertylaura.com/"
-      }
+      },
+      {
+        name: "reCAPTCHA Solver",
+        description: "Script de automatización para omitir reCAPTCHA v2 mediante análisis de voz. Intercepta la prueba de audio, procesa el archivo de sonido con PyDub y transcribe el contenido usando SpeechRecognition para completar la verificación de forma autónoma.",
+        tech: ["Python", "Selenium", "Requests", "PyDub", "SpeechRecognition"],
+        github: "https://github.com/camospinac/bypasseador",
+        deploy: "https://medium.com/@camospinac/c%C3%B3mo-resolver-un-recaptcha-con-python-y-selenium-e1f86f014910"
+      },
+      {
+        name: "US Visa Appointment Rescheduler",
+        description: "Bot de automatización diseñado para monitorear y reagendar citas de visa de forma autónoma. Examina continuamente la disponibilidad del calendario oficial, gestiona las sesiones de usuario y envía notificaciones por correo electrónico.",
+        tech: ["Python", "Selenium", "SMTP", "Batch"],
+        github: "https://github.com/camospinac/reschedulervisa",
+        deploy: "https://medium.com/@camospinac/automatizaci%C3%B3n-para-el-reagendamiento-de-solicitud-de-citas-de-visa-8dd598730226"
+      },
+      {
+        name: "Pentaho PDI + Python Integration",
+        description: "Guía técnica y caso de estudio sobre cómo extender los flujos ETL de Pentaho Data Integration ejecutando lógica de Python. Detalla la configuración paso a paso para automatización y transformación avanzada de datos.",
+        tech: ["Pentaho PDI", "Python", "ETL"],
+        article: "https://medium.com/@camospinac/integrando-pentaho-data-integration-con-python-e55b4529f67f"
+      },
+      {
+        name: "Meta WhatsApp API + Laravel Integration",
+        description: "Guía técnica sobre la integración de la API oficial de WhatsApp Cloud con Laravel para el envío de mensajes transaccionales. Basada en la solución de un proyecto real en producción.",
+        tech: ["Laravel", "PHP", "Meta API", "WhatsApp Cloud API", "REST API"],
+        article: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
+      },
     ],
     stack: {
       languages: ["Python", "Java", "TypeScript", "JavaScript", "SQL", "Go"],
@@ -92,7 +118,7 @@ const cvData = {
       username: "camospinac",
       location: "Bogotá D.C, Colombia",
       role: "Software Developer",
-      summary: "I’m a software developer with 4+ years of enterprise software experience, currently focused on proper structuring before building. I’m obsessed with performance, recently, I led a reporting API in Go that slashed query times from 10+ minutes to under 10 seconds while processing streams of 500k+ records. I’m also passionate about automation, having built internal tools that eliminated repetitive manual work and improved my team's documentation quality. My core stack includes Python, SQL, Go, and Java, alongside low-code platforms like GeneXus for legacy software systems.",
+      summary: "I’m a software developer with +4 years of enterprise software experience, currently focused on proper structuring before building. I’m obsessed with performance, recently, I led a reporting API in Go that slashed query times from 10+ minutes to under 10 seconds while processing streams of 500k+ records. I’m also passionate about automation, having built internal tools that eliminated repetitive manual work and improved my team's documentation quality. My core stack includes Python, SQL, Go, and Java, alongside low-code platforms like GeneXus for legacy software systems.",
       ascii: `
    ____                _ _       
   / ___|__ _ _ __ ___ (_) | ___  
@@ -106,7 +132,7 @@ const cvData = {
         role: "Software Developer",
         company: "Link2Know — Software & Consultoría",
         location: "Remote",
-        duration: "Mayo 2022 — Now",
+        duration: "May 2022 — Now",
         description: [
           "Led the design and development of an API for enterprise dashboards, processing large data volumes to deliver high-value insights to clients.",
           "Designed and engineered a Go-based reporting API using data streams, slashing query times from 10+ minutes to under 10 seconds while processing 500k+ records without memory failures.",
@@ -122,6 +148,32 @@ const cvData = {
         tech: ["JavaScript", "GSAP", "CSS3", "HTML5", "Supabase"],
         github: "https://github.com/camospinac/robertlauraboda",
         deploy: "https://robertylaura.com/"
+      },
+      {
+        name: "reCAPTCHA Solver",
+        description: "Automated web solution built to bypass Google reCAPTCHA v2 challenges via voice recognition. It intercepts audio payloads, converts audio streams with PyDub, and transcribes spoken text using SpeechRecognition for autonomous verification.",
+        tech: ["Python", "Selenium", "Requests", "PyDub", "SpeechRecognition"],
+        github: "https://github.com/camospinac/bypasseador",
+        deploy: "https://medium.com/@camospinac/how-to-solve-a-recaptcha-with-python-and-selenium-44a2e18839f0"
+      },
+      {
+        name: "US Visa Appointment Rescheduler",
+        description: "Automated bot designed to continuously monitor and reschedule US visa appointments. Features real-time calendar tracking, session persistence, and instant email notifications.",
+        tech: ["Python", "Selenium", "SMTP", "Batch"],
+        github: "https://github.com/camospinac/reschedulervisa",
+        deploy: "https://medium.com/@camospinac/automation-for-eescheduling-visa-appointment-requests-f54b1b9c2de9"
+      },
+      {
+        name: "Pentaho PDI + Python Integration",
+        description: "Technical guide and case study on extending Pentaho Data Integration (PDI) ETL workflows by executing custom Python logic. Covers step-by-step setup for advanced data transformation and workflow automation.",
+        tech: ["Pentaho PDI", "Python", "ETL"],
+        deploy: "https://medium.com/@camospinac/integrating-pentaho-data-integration-with-python-95c453aa7540"
+      },
+      {
+        name: "Meta WhatsApp API + Laravel Integration",
+        description: "Technical guide detailing the integration of Meta's official WhatsApp Cloud API with Laravel for transactional messaging. Developed from a production-grade client implementation.",
+        tech: ["Laravel", "PHP", "Meta API", "WhatsApp Cloud API", "REST API"],
+        article: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
       },
     ],
     stack: {
