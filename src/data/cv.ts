@@ -54,13 +54,13 @@ const cvData = {
         name: "Pentaho PDI + Python Integration",
         description: "Guía técnica y caso de estudio sobre cómo extender los flujos ETL de Pentaho Data Integration ejecutando lógica de Python. Detalla la configuración paso a paso para automatización y transformación avanzada de datos.",
         tech: ["Pentaho PDI", "Python", "ETL"],
-        article: "https://medium.com/@camospinac/integrando-pentaho-data-integration-con-python-e55b4529f67f"
+        deploy: "https://medium.com/@camospinac/integrando-pentaho-data-integration-con-python-e55b4529f67f"
       },
       {
         name: "Meta WhatsApp API + Laravel Integration",
         description: "Guía técnica sobre la integración de la API oficial de WhatsApp Cloud con Laravel para el envío de mensajes transaccionales. Basada en la solución de un proyecto real en producción.",
         tech: ["Laravel", "PHP", "Meta API", "WhatsApp Cloud API", "REST API"],
-        article: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
+        deploy: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
       },
     ],
     stack: {
@@ -173,7 +173,7 @@ const cvData = {
         name: "Meta WhatsApp API + Laravel Integration",
         description: "Technical guide detailing the integration of Meta's official WhatsApp Cloud API with Laravel for transactional messaging. Developed from a production-grade client implementation.",
         tech: ["Laravel", "PHP", "Meta API", "WhatsApp Cloud API", "REST API"],
-        article: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
+        deploy: "https://medium.com/@camospinac/envio-de-mensaje-de-whatsapps-con-laravel-y-la-api-oficial-de-meta-59652ea423b8"
       },
     ],
     stack: {
